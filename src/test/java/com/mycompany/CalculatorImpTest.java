@@ -1,3 +1,5 @@
+package com.mycompany;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,6 +7,7 @@
  */
 
 import com.mycompany.CalculatorImp;
+import static jdk.nashorn.internal.objects.Global.Infinity;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,7 +19,7 @@ import static org.junit.Assert.*;
  *
  * @author user
  */
-public class NewEmptyJUnitTest {
+public class CalculatorImpTest {
 
     private CalculatorImp calculator;
 
@@ -53,5 +56,11 @@ public class NewEmptyJUnitTest {
     public void functionTest() throws Exception {
         double result = calculator.calculate("sin(1)*sin(1)+cos(1)*cos(1)");
         assertEquals(1, result, 1e-9);
+    }
+    
+    @Test
+    public void zeroDivision() throws Exception {
+        double result = calculator.calculate("10/0");
+        assertEquals(Infinity, result, 1e-9);
     }
 }

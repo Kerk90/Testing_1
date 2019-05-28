@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.Demo1;
+package com.mycompany;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Ignore;
@@ -16,9 +16,8 @@ import org.junit.Test;
 public class AssertTest {
 
     @Test
-    @Ignore
     public void substring() {
-        assertEquals("llo", "Hello".substring(3));
+        assertEquals("llo", "Hello".substring(2));
     }
 
     @Test
@@ -29,5 +28,9 @@ public class AssertTest {
                 1d / 3 + 1d / 3 + 1d / 3,
                 1e-10);
 
+    }
+    @Test(expected = ArithmeticException.class)
+    public void zero_division() {
+        assertEquals(10/0, 0);
     }
 }
